@@ -39,7 +39,14 @@ Acesse o site: [Livraria Encanto Paralelo](https://drycaleffi.github.io/Site-Liv
 ### Página Inicial
 ![image](https://github.com/user-attachments/assets/32bb1717-5db8-45aa-a39a-653fd2cef546)
 
+### Página de Cadastro
+![image](https://github.com/user-attachments/assets/8366f7f5-7b28-487b-8a69-20521fa2f5bf)
 
+### Página com aba de Login
+![image](https://github.com/user-attachments/assets/de92b81b-198e-4b26-8f05-baa58858bdc5)
+
+### Página de Inicio
+![image](https://github.com/user-attachments/assets/899f574a-627c-40d4-aa49-05788d1dd72e)
 
 ## 🔧 Instalação e Execução Local
 
