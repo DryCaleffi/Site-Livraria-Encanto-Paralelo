@@ -1,0 +1,186 @@
+
+/*Adicionar fonte e tamanho do texto inicial, centralizar ele ao meio da tela, como texto inicial*/
+.top-bar {
+    position: fixed;/*define a posição da mesma*/
+    top: 0;
+    left: 0;
+    height: 6%; /* Altura da barra */
+    width: 100%; /* Largura total, ocupa a tela inteira */
+    background-color: #c6a270; /* Cor de fundo */
+    z-index: 1000; /* Fixa acima do conteúdo */
+    display: flex; /* Garante que o conteúdo da barra use flexbox */
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: right; /* Espaça os itens de forma igual */
+    padding: 0 20px; /* Ajuste de margens laterais */
+}
+
+/* Edição do menu de navegação */
+        .nav-bar {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center; /* Centraliza os itens verticalmente */
+        }
+
+/* Estilizando a lista de itens de navegação, tirando os botões da lista ordenada */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            justify-content: right;
+            margin: 0; /* Remove margens externas */
+            gap: 15px; /* Define um espaçamento uniforme entre os itens */
+        }
+
+/* Estilizando os itens do menu de navegação, como por exemplo os incones */
+        .nav-menu li {
+            margin-right: 3%; /* Espaçamento entre os itens */
+        }
+
+        /* Estilo dos links de navegação */
+        .nav-link {
+            text-decoration: none; /* Remove o sublinhado do texto */
+            color: white !important; /* Cor do texto */
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px; /* Tamanho da fonte */
+            padding: 10px 15px; /* Ajusta o espaçamento interno */
+            display: flex; /* Usa flexbox */
+            align-items: center; /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+            height: 100%; /* Garante que ocupe toda a altura do item */
+            line-height: normal; /* Evita que o texto fique desalinhado */
+        }
+        /* Efeito de hover e item ativo */
+        .nav-link:hover, .nav-link.active {
+            background-color: #734e27; /* Cor de fundo ao passar o mouse */
+            border-radius: 50%; /* Borda arredondada */
+        }
+       #inicio{
+            margin-top: 18% !important; /* Espaçamento entre os itens */
+        }
+
+
+        /* Estilo da imagem (ícone) */
+         .nav-icon {
+            width: 40px;
+            height: 40px;
+        }
+        .nav-text {
+            font-size: 20px;
+            font-family: cormorant garamond;
+            color: white;
+            margin-left: auto; /* Faz com que o texto fique à direita */
+            padding-right: 20px; /* Espaço à direita */
+            justify-content: left !important;
+        }
+        .nav-icon-home{
+            width: 40px; /* Define o tamanho da imagem */
+            height: 40px; /* Define a altura da imagem */
+            margin-right: 10px; /* Espaço entre a imagem e o texto */
+        }
+
+        /* Espaço para compensar a barra fixa */
+        .content {
+            padding-top: 80px; /* Ajuste dependendo da altura da barra */
+        }
+
+  /* Personalizando o botão do dropdown, borão da pagina e contato , uma lista suspensa*/
+        .dropdown-toggle {
+            background-color: transparent !important; /* Cor de fundo */
+            color: white !important; /* Cor do texto */
+            font-family: comorant garamond !important;
+            padding: 0px !important; /* Espaçamento */
+            margin-top: auto;
+            border-radius: 5px !important; /* Borda arredondada */
+            border: none !important; /* Remove a borda */
+            cursor: pointer !important; /* Cursor de clique */
+        }
+
+                    /* Efeito hover no botão */
+                    .dropdown-toggle:hover {
+                        background-color: #5a3b1c !important;
+                    }
+
+                    /* Personalizando o menu do dropdown */
+                    .dropdown-menu {
+                        background-color: #c6a270 !important;
+                        border-radius: 5px !important;
+                        border: 1px solid #734e27 !important;
+                    }
+
+                    /* Personalizando os itens do dropdown */
+                    .dropdown-item {
+                        color: white !important;
+                        padding: 10px 15px !important;
+                        font-family: cormorant garamond !important;
+                    }
+
+                    /* Efeito hover nos itens */
+                    .dropdown-item:hover {
+                        background-color: #734e27 !important;
+                        color: white !important;
+                    }
+
+                    .title {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        margin-top: 30%;
+                    }
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f2f2f2;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        margin: 0;
+                    }
+
+                    .login-container {
+                        background-color: #fff;
+                        padding: 20px;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        width: 300px;
+                        text-align: center;
+                    }      
+/*  MODAL DE Login*/
+
+            .Aba_Login {
+                background: none; /* Remove o fundo */
+                border: none; /* Remove a borda */
+                padding: 0; /* Remove padding extra */
+                cursor: pointer;
+            }
+
+            .Aba_Login img {
+                width: 40px; /* Ajuste o tamanho conforme necessário */
+                height: 40px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 12px;
+                background-color:#c6a270 !important ;
+                color: white;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+        
+
+
+/*Edição do rodapé da página*/
+footer {
+    background-color: #c6a270;
+    color: black;
+    text-align: center;
+    height: 5%;
+    padding: 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
