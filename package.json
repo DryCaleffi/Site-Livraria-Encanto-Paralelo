@@ -1,0 +1,32 @@
+{
+  "devDependencies": {
+    "@types/express-session": "^1.18.2",
+    "@types/node": "^24.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "name": "site-livraria-encanto-paralelo",
+  "version": "1.0.0",
+  "main": "action.js",
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "undici-types": "^7.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DryCaleffi/Site-Livraria-Encanto-Paralelo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DryCaleffi/Site-Livraria-Encanto-Paralelo/issues"
+  },
+  "homepage": "https://github.com/DryCaleffi/Site-Livraria-Encanto-Paralelo#readme",
+  "description": ""
+}

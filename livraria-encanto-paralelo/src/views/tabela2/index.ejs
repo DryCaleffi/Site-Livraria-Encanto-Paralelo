@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela 2</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('../layouts/main.ejs') %>
+    <h1>Lista de Registros da Tabela 2</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% registros.forEach(registro => { %>
+                <tr>
+                    <td><%= registro.id %></td>
+                    <td><%= registro.nome %></td>
+                    <td>
+                        <a href="/tabela2/editar/<%= registro.id %>">Editar</a>
+                        <a href="/tabela2/deletar/<%= registro.id %>">Deletar</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <a href="/tabela2/cadastro">Cadastrar Novo Registro</a>
+</body>
+</html>
