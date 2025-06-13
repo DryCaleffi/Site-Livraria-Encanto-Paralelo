@@ -1,0 +1,40 @@
+{
+  "name": "livraria_encanto_paralelo",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "main": "public/js/script.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "nodemon --watch src --exec ts-node src/server.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DryCaleffi/Livraria_Encanto_Paralelo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DryCaleffi/Livraria_Encanto_Paralelo/issues"
+  },
+  "homepage": "https://github.com/DryCaleffi/Livraria_Encanto_Paralelo#readme",
+  "description": "Este projeto é uma aplicação web desenvolvida em Node.js utilizando TypeScript, seguindo o padrão MVC (Model-View-Controller). A aplicação permite o cadastro e seleção de dados em duas tabelas, com login obrigatório para acesso a funcionalidades restritas.",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.17.1",
+    "mysql2": "^3.14.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.2",
+    "@types/sqlite3": "^3.1.11",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.5"
+  },
+  "keywords": []
+}
