@@ -2,7 +2,8 @@
 import { Request, Response } from 'express';
 import db from '../database/sqlite';
 import { User } from '../models/userModel';
-import userModel from '../models/userModel'; // Corrija este import
+import { Router } from 'express';
+import { registerUser, login } from '../controllers/authController';
 
 export const registerUser = async (req: Request, res: Response) => {
     const { username, password } = req.body;
@@ -23,7 +24,7 @@ export const registerUser = async (req: Request, res: Response) => {
     });
 };
 
-export const findUser = (req: Request, res: Response) => {
+export const findUserController = (req: Request, res: Response) => {
     const { id } = req.params;
     const sql = "SELECT id, username FROM login WHERE id = ?";
 
@@ -63,11 +64,8 @@ export const logout = (req: Request, res: Response): void => {
 };
 
 // Adicionando a exportação do registerUser e login
-export { registerUser, login };
-
 // src/routes/authRoutes.ts
-import { Router } from 'express';
-import { registerUser, login } from '../controllers/authController';
+
 
 const router = Router();
 

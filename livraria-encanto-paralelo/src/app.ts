@@ -4,7 +4,7 @@ import path from 'path';
 import authRoutes from './routes/authRoutes';
 import tabela1Routes from './routes/tabela1Routes';
 import tabela2Routes from './routes/tabela2Routes';
-import { sqliteConnection } from './database/sqlite';
+import {sqliteConnection} from '../src/database/sqliteConnection';
 import pagesRoutes from './routes/pagesRoutes';
 
 const app = express();

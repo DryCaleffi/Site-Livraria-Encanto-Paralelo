@@ -1,41 +1,20 @@
-// import { Database } from 'sqlite3';
-
-// export class UserModel {
-//     private db: Database;
-
-//     constructor(db: Database) {
-//         this.db = db;
-//     }
-
-//     public createUser(username: string, password: string): Promise<void> {
-//         return new Promise((resolve, reject) => {
-//             const sql = 'INSERT INTO users (username, password) VALUES (?, ?)';
-//             this.db.run(sql, [username, password], function (err) {
-//                 if (err) {
-//                     reject(err);
-//                 } else {
-//                     resolve();
-//                 }
-//             });
-//         });
-//     }
-
-//     public getUserByUsername(username: string): Promise<any> {
-//         return new Promise((resolve, reject) => {
-//             const sql = 'SELECT * FROM users WHERE username = ?';
-//             this.db.get(sql, [username], (err, row) => {
-//                 if (err) {
-//                     reject(err);
-//                 } else {
-//                     resolve(row);
-//                 }
-//             });
-//         });
-//     }
-// }
-// src/models/User.ts
+import db from '../database/sqlite';
 export interface User {
     id?: number;
     username: string;
-    password?: string; // A senha não deve ser exposta em todas as operações
+    password?: string; // A senha não deve ser exposta em todas as operações
+}
+
+// Função para buscar usuário por username e password
+export async function findUser(username: string, password: string): Promise<User | null> {
+    return new Promise((resolve, reject) => {
+        const sql = 'SELECT * FROM login WHERE username = ? AND password = ?';
+        db.get(sql, [username, password], (err, row) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(row ? (row as User) : null);
+            }
+        });
+    });
 }
