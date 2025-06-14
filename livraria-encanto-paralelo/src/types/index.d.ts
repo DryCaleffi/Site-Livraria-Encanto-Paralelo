@@ -1,7 +1,8 @@
 // filepath: c:\Users\adeso\Documents\Livraria_Encanto_Paralelo\src\types\index.d.ts
-declare module "express-session" {
+import 'express-session';
+declare module 'express-session' {
   interface SessionData {
-    userId: string;
+    userId?: number;
   }
 }
 

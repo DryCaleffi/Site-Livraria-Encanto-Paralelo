@@ -33,3 +33,4 @@ class Tabela1Model {
     }
 }
 exports.Tabela1Model = Tabela1Model;
+exports.default = Tabela1Model;

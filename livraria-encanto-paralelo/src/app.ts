@@ -1,37 +1,24 @@
 import express from 'express';
-import session from 'express-session';
-import path from 'path';
-import authRoutes from './routes/authRoutes';
-import tabela1Routes from './routes/tabela1Routes';
-import tabela2Routes from './routes/tabela2Routes';
-import {sqliteConnection} from '../src/database/sqliteConnection';
+const session = require('express-session');
 import pagesRoutes from './routes/pagesRoutes';
 
 const app = express();
 
-// Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+
+app.use(express.static(__dirname + '/public')); // Para servir CSS/JS
+
 app.use(session({
-    secret: 'your_secret_key',
-    resave: false,
-    saveUninitialized: true,
+  secret: 'seu-secret-aqui',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false,
+    maxAge: 24 * 60 * 60 * 1000
+  }
 }));
 
-// Set view engine
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-// Static files
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Routes
 app.use('/', pagesRoutes);
-app.use('/auth', authRoutes);
-app.use('/tabela1', tabela1Routes);
-app.use('/tabela2', tabela2Routes);
-
-// Database connection
-sqliteConnection();
 
 export default app;

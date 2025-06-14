@@ -33,3 +33,4 @@ export class Tabela1Model {
         });
     }
 }
+export default Tabela1Model;

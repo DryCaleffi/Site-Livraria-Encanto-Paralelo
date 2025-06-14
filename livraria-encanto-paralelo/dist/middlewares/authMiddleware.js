@@ -2,9 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authMiddleware = void 0;
 const authMiddleware = (req, res, next) => {
-    if (req.isAuthenticated()) {
-        return next();
+    // Agora isso funcionará sem erro
+    if (req.session && req.session.userId) {
+        next();
     }
-    res.redirect('/login');
+    else {
+        res.status(401).json({ error: 'Não autorizado' });
+    }
 };
 exports.authMiddleware = authMiddleware;
