@@ -1,22 +1,22 @@
+// src/routes/authRoutes.ts
 import { Router } from 'express';
-import { registerUser, login } from '../controllers/authController';
+import { registerUser, login, logout, findUserController } from '../controllers/authController';
 
 const router = Router();
 
-// Exibe o formulário de login
-router.get('/login', (req, res) => {
-    res.render('auth/login');
-});
-
-// Exibe o formulário de cadastro de usuário
-router.get('/register', (req, res) => {
-    res.render('auth/register');
-});
-
-// Processa o cadastro de usuário
+// Rotas de autenticação
 router.post('/register', registerUser);
-
-// Processa o login
 router.post('/login', login);
+router.post('/logout', logout);
+router.get('/user/:id', findUserController);
+
+// Rotas para renderizar páginas (se você estiver usando templates)
+router.get('/login', (req, res) => {
+    res.render('auth/login'); // ou res.sendFile() se for HTML estático
+});
+
+router.get('/register', (req, res) => {
+    res.render('auth/register'); // ou res.sendFile() se for HTML estático
+});
 
 export default router;

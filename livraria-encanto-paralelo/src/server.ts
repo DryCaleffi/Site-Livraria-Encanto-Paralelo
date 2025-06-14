@@ -1,5 +1,8 @@
 // src/server.ts
-import express from 'express';
-const app = express();
+import app from './app';
 
-app.listen(3000, () => console.log('Servidor rodando'));
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
+});
