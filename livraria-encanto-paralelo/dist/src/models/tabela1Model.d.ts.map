@@ -1,0 +1,1 @@
+{"version":3,"file":"tabela1Model.d.ts","sourceRoot":"","sources":["../../../src/models/tabela1Model.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,SAAS,CAAC;AAEnC,qBAAa,YAAY;IACrB,OAAO,CAAC,EAAE,CAAW;gBAET,EAAE,EAAE,QAAQ;IAIjB,MAAM,CAAC,IAAI,EAAE,GAAG,GAAG,OAAO,CAAC,IAAI,CAAC;IAahC,OAAO,IAAI,OAAO,CAAC,GAAG,EAAE,CAAC;CAYnC;AACD,eAAe,YAAY,CAAC"}

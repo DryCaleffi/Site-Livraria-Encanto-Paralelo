@@ -1,0 +1,63 @@
+<header class="top-bar"> <!--Barra do Topo-->
+      <nav class="nav-bar">
+          <ul class="nav-menu">
+          <!--   Link Para Aba de Inicio -->
+          <li>
+            <a class="nav-link" href="./index.html">
+                <img src="imagens/Home.png" alt="Home" class="nav-icon-home">
+            </a>
+        </li>
+
+<!-- Botão de login -->
+<!-- Botão de login -->
+<button type="button" class="Aba_Login" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<img src="imagens/Icon_login.png" alt="Login" class="nav-icon">
+</button>
+
+<!-- Modal (sem fundo escuro) -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="false">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+            <!-- Formulário SEM submit para evitar reload -->
+            <form id="loginForm" onsubmit="return false;">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="Digite seu e-mail">
+                </div>
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" name="senha" required placeholder="Senha">
+                </div>
+            </form>
+            <div id="mensagem" class="mt-2 fw-bold"></div>
+        </div>
+        <div class="modal-footer">
+            <!-- Botão chama a função validarLogin -->
+            <button type="button" class="btn btnLogin" onclick="validarLogin()">Login</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<li><a class="nav-link" id="inicio" href="./Aba_Inicio.html" onclick="openTab(event, 'Aba_Inicio')">Inicio</a></li>  <!--criação dos links para abrir a aba de Inicio, contato e login-->
+<!--   lista Suspensa para aba de contatos -->
+    <li><a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contato</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="https://www.instagram.com/">Instagram</a></li>
+        <li><a class="dropdown-item" href="https://www.facebook.com/?locale=pt_BR">Facebook</a></li>
+        <li><a class="dropdown-item" href="https://www.tiktok.com/upload?lang=pt-BR">TikTok</a></li>
+         <!-- criação dos links para abrir a aba de Inicio, contato e login-->
+      </ul>
+    </li>
+
+</nav>
+
+</header>
+
+
+    
