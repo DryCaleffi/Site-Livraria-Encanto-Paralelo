@@ -1,13 +1,10 @@
 import express from 'express';
-const session = require('express-session');
-import pagesRoutes from './routes/pagesRoutes';
+import session from 'express-session';
+import path from 'path';
 
 const app = express();
 
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
-
-app.use(express.static(__dirname + '/public')); // Para servir CSS/JS
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(session({
   secret: 'seu-secret-aqui',
@@ -18,7 +15,5 @@ app.use(session({
     maxAge: 24 * 60 * 60 * 1000
   }
 }));
-
-app.use('/', pagesRoutes);
 
 export default app;
