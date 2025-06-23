@@ -178,9 +178,11 @@ footer {
     background-color: #c6a270;
     color: black;
     text-align: center;
-    height: 5%;
-    padding: 1px;
+    padding: 10px 0; /* Padding vertical adequado */
     position: fixed;
     bottom: 0;
+    left: 0; /* Garante que comece na esquerda */
     width: 100%;
+    z-index: 1000; /* Fica acima de outros elementos */
+    box-sizing: border-box; /* Inclui padding na largura total */
 }
