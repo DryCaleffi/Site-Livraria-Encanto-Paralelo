@@ -1,0 +1,41 @@
+   <!DOCTYPE html>
+<html lang="pt-BR">
+<head> 
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components/navegacao_rodape.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="/action.js"></script> 
+    <script src="/js/formulario.js"></script>
+</head>
+<%- include('../partials/navbar') %>
+
+<body>
+<title>Usuários Cadastrados</title>
+<div class="container">
+  <h2>Usuários cadastrados</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>CPF</th>
+        <th>Telefone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% usuarios.forEach(usuario => { %>
+        <tr>
+          <td><%= usuario.nome %></td>
+          <td><%= usuario.email %></td>
+          <td><%= usuario.cpf %></td>
+          <td><%= usuario.telefone %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<%- include('../partials/footer') %>
+</body>
+</html>
