@@ -28,7 +28,7 @@
     "express-flash": "^0.0.2",
     "express-session": "^1.18.1",
     "multer": "^1.4.5-lts.1",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -38,10 +38,12 @@
     "@types/express-session": "^1.18.2",
     "@types/multer": "^1.4.11",
     "@types/node": "^20.19.1",
+    "@types/sqlite3": "^3.1.11",
     "concurrently": "^8.2.2",
     "copyfiles": "^2.4.1",
     "nodemon": "^3.0.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
-  }
+  },
+  "type": "commonjs"
 }
