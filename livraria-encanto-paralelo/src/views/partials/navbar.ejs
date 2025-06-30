@@ -40,26 +40,55 @@
           </div>
           <div class="modal-body">
             <!-- Formulário SEM submit para evitar reload -->
-            <form id="loginForm" onsubmit="return false;">
+            <form id="loginForm">
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" required placeholder="Digite seu e-mail">
               </div>
               <div class="mb-3">
                 <label for="senha" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="senha" name="senha" required placeholder="Senha">
+                <input type="password" class="form-control" id="password" name="password" required placeholder="Senha (mínimo 6 caracteres)">
               </div>
+              <button type="submit" class="btn btnLogin">Login</button>
             </form>
-            <div id="mensagem" class="mt-2 fw-bold"></div>
-          </div>
-          <div class="modal-footer">
-            <!-- Botão chama a função validarLogin -->
-            <button type="button" class="btn btnLogin" onclick="validarLogin()">Login</button>
           </div>
         </div>
       </div>
     </div>
   </nav>
 </header>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  const response = await fetch('/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Login realizado com sucesso!',
+      showConfirmButton: false,
+      timer: 1500
+    }).then(() => {
+      window.location.href = '/Aba_Inicio'; // Redireciona após o login
+    });
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Erro',
+      text: data.error || 'E-mail ou senha inválidos.'
+    });
+  }
+});
+</script>
 
 
