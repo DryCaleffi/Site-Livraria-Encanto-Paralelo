@@ -34,6 +34,9 @@
                 <label for="telefone">Telefone:</label>
                 <input type="text" id="telefone" name="telefone" required placeholder="(XX) XXXXX-XXXX">
                 <span class="erro" id="erro-telefone"></span>
+                <label for="Senha">Senha</label>
+                <input type="text" id="password" name="password" required placeholder="Senha (mínimo 6 caracteres)">
+                <span class="text" id="erro-senha"></span>
                 <button type="submit" id="btnEnviar">Enviar</button>
             </form>
             <% if (typeof error !== 'undefined') { %>

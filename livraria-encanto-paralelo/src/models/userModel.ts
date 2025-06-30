@@ -8,16 +8,23 @@ export async function createUserTable() {
       nome TEXT NOT NULL,
       email TEXT UNIQUE NOT NULL,
       cpf TEXT,
-      telefone TEXT
+      telefone TEXT,
+      password TEXT
     )
   `);
 }
 
-export async function insertUser(nome: string, email: string, cpf: string, telefone: string) {
+export async function insertUser(
+  nome: string,
+  email: string,
+  cpf: string,
+  telefone: string,
+  password: string // Corrigido: adiciona o parâmetro password
+) {
   const db = await openDb();
   await db.run(
-    'INSERT INTO usuarios (nome, email, cpf, telefone) VALUES (?, ?, ?, ?)',
-    [nome, email, cpf, telefone]
+    'INSERT INTO usuarios (nome, email, cpf, telefone, password) VALUES (?, ?, ?, ?, ?)',
+    [nome, email, cpf, telefone, password]
   );
 }
 
