@@ -1,7 +1,7 @@
 import express from 'express';
 import session from 'express-session';
 import path from 'path';
-import pagesRoutes from './routes/pagesRoutes';
+import pagesRoutes from './controllers/pagesRoutes';
 
 const app = express();
 

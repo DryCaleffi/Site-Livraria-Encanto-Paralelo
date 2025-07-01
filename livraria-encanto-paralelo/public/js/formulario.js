@@ -41,12 +41,11 @@ document.addEventListener('DOMContentLoaded', function () {
   
     // Validação e SweetAlert
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
-  
       const cpf = cpfInput.value;
       const telefone = telefoneInput.value;
   
       if (!validarCPF(cpf)) {
+        e.preventDefault();
         Swal.fire({
           icon: 'error',
           title: 'CPF inválido',
@@ -56,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   
       if (telefone.length < 14) {
+        e.preventDefault();
         Swal.fire({
           icon: 'error',
           title: 'Telefone inválido',
@@ -63,15 +63,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         return;
       }
-  
-      // Tudo certo!
-      Swal.fire({
-        icon: 'success',
-        title: 'Cadastro realizado!',
-        text: 'Seus dados foram enviados com sucesso.'
-      });
-
-      form.reset();
     });
   });
-  
