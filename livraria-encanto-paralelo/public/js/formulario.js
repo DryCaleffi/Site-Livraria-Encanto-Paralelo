@@ -70,8 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         title: 'Cadastro realizado!',
         text: 'Seus dados foram enviados com sucesso.'
       });
-  
-      // Aqui você pode enviar os dados via fetch ou limpar o formulário
+
       form.reset();
     });
   });

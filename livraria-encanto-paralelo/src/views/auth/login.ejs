@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1>Login</h1>
-        <form action="/auth/login" method="POST">
+        <form id="loginForm">
             <div class="form-group">
                 <label for="username">Usuário:</label>
                 <input type="text" id="username" name="username" required>
@@ -33,5 +33,36 @@
         });
       </script>
     <% } %>
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+
+        fetch('/auth/login', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = '/';
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Erro',
+              text: data.message
+            });
+          }
+        })
+        .catch(error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: 'Ocorreu um erro ao processar sua solicitação.'
+          });
+        });
+      });
+    </script>
 </body>
 </html>
