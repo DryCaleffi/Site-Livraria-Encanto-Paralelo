@@ -1,5 +1,5 @@
 import { openDb } from '../database/db';
-
+// Modelo da tabela de usuários 
 export async function createUserTable() {
   const db = await openDb();
   await db.exec(`

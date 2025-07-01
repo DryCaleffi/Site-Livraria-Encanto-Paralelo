@@ -2,6 +2,7 @@ import sqlite3 from 'sqlite3';
 import path from 'path';
 import fs from 'fs';
 
+// Criação do modelo base da tabela no banco de dados SQLite para a livraria
 export class Database {
   private db: sqlite3.Database | null = null;
   private dbPath: string;
@@ -12,7 +13,6 @@ export class Database {
     if (!fs.existsSync(dbDir)) {
       fs.mkdirSync(dbDir, { recursive: true });
     }
-    
     this.dbPath = path.join(dbDir, 'livraria.db');
   }
 
@@ -25,16 +25,15 @@ export class Database {
         }
         console.log('🗄️  Conectado ao banco SQLite');
         this.createTables()
-          .then(() => this.seedInitialData())
           .then(resolve)
           .catch(reject);
       });
     });
   }
 
+  // Apenas a tabela de usuários
   private async createTables(): Promise<void> {
     const queries = [
-      // Tabela de usuários
       `CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome VARCHAR(100) NOT NULL,
@@ -45,124 +44,11 @@ export class Database {
         data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
         ativo BOOLEAN DEFAULT 1
       )`,
-      
-      // Tabela de categorias
-      `CREATE TABLE IF NOT EXISTS categorias (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome VARCHAR(50) NOT NULL UNIQUE,
-        descricao TEXT,
-        ativo BOOLEAN DEFAULT 1
-      )`,
-      
-      // Tabela de livros
-      `CREATE TABLE IF NOT EXISTS livros (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        titulo VARCHAR(200) NOT NULL,
-        autor VARCHAR(150) NOT NULL,
-        isbn VARCHAR(20) UNIQUE,
-        categoria_id INTEGER,
-        preco DECIMAL(10,2) NOT NULL,
-        descricao TEXT,
-        imagem_url VARCHAR(255),
-        estoque INTEGER DEFAULT 0,
-        disponivel BOOLEAN DEFAULT 1,
-        data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (categoria_id) REFERENCES categorias (id)
-      )`,
-      
-      // Tabela de favoritos
-      `CREATE TABLE IF NOT EXISTS favoritos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER NOT NULL,
-        livro_id INTEGER NOT NULL,
-        data_adicao DATETIME DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_id) REFERENCES users (id),
-        FOREIGN KEY (livro_id) REFERENCES livros (id),
-        UNIQUE(user_id, livro_id)
-      )`
     ];
 
     for (const query of queries) {
       await this.run(query);
     }
-  }
-
-  private async seedInitialData(): Promise<void> {
-    // Verificar se já existem dados
-    const categoryCount = await this.get('SELECT COUNT(*) as count FROM categorias');
-    if (categoryCount.count > 0) return;
-
-    // Inserir categorias iniciais
-    const categorias = [
-      { nome: 'Ficção', descricao: 'Romances e histórias ficcionais' },
-      { nome: 'Fantasia', descricao: 'Livros de fantasia e mundos imaginários' },
-      { nome: 'Mistério', descricao: 'Suspense e histórias de mistério' },
-      { nome: 'Romance', descricao: 'Histórias românticas' },
-      { nome: 'Aventura', descricao: 'Livros de aventura e ação' },
-      { nome: 'Clássicos', descricao: 'Literatura clássica mundial' }
-    ];
-
-    for (const categoria of categorias) {
-      await this.run(
-        'INSERT INTO categorias (nome, descricao) VALUES (?, ?)',
-        [categoria.nome, categoria.descricao]
-      );
-    }
-
-    // Inserir livros iniciais
-    const livros = [
-      {
-        titulo: 'O Senhor dos Anéis: A Sociedade do Anel',
-        autor: 'J.R.R. Tolkien',
-        isbn: '9788533613379',
-        categoria_id: 2,
-        preco: 45.90,
-        descricao: 'Primeira parte da épica trilogia de fantasia de Tolkien.',
-        imagem_url: '/images/books/senhor-aneis-1.jpg',
-        estoque: 15
-      },
-      {
-        titulo: 'Dom Casmurro',
-        autor: 'Machado de Assis',
-        isbn: '9788594318602',
-        categoria_id: 6,
-        preco: 29.90,
-        descricao: 'Um dos maiores clássicos da literatura brasileira.',
-        imagem_url: '/images/books/dom-casmurro.jpg',
-        estoque: 20
-      },
-      {
-        titulo: 'Assassinato no Expresso do Oriente',
-        autor: 'Agatha Christie',
-        isbn: '9788525432622',
-        categoria_id: 3,
-        preco: 34.90,
-        descricao: 'Clássico do mistério com Hercule Poirot.',
-        imagem_url: '/images/books/expresso-oriente.jpg',
-        estoque: 12
-      },
-      {
-        titulo: 'Orgulho e Preconceito',
-        autor: 'Jane Austen',
-        isbn: '9788544001677',
-        categoria_id: 4,
-        preco: 32.90,
-        descricao: 'Romance clássico inglês sobre Elizabeth Bennet.',
-        imagem_url: '/images/books/orgulho-preconceito.jpg',
-        estoque: 18
-      }
-    ];
-
-    for (const livro of livros) {
-      await this.run(
-        `INSERT INTO livros (titulo, autor, isbn, categoria_id, preco, descricao, imagem_url, estoque) 
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-        [livro.titulo, livro.autor, livro.isbn, livro.categoria_id, 
-         livro.preco, livro.descricao, livro.imagem_url, livro.estoque]
-      );
-    }
-
-    console.log('🌱 Dados iniciais inseridos no banco!');
   }
 
   public async run(query: string, params: any[] = []): Promise<void> {
@@ -171,7 +57,6 @@ export class Database {
         reject(new Error('Database not initialized'));
         return;
       }
-      
       this.db.run(query, params, function(err) {
         if (err) {
           reject(err);
@@ -188,7 +73,6 @@ export class Database {
         reject(new Error('Database not initialized'));
         return;
       }
-      
       this.db.get(query, params, (err, row) => {
         if (err) {
           reject(err);
@@ -205,7 +89,6 @@ export class Database {
         reject(new Error('Database not initialized'));
         return;
       }
-      
       this.db.all(query, params, (err, rows) => {
         if (err) {
           reject(err);

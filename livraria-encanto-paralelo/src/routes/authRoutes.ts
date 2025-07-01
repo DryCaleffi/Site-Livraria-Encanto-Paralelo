@@ -1,4 +1,5 @@
-// src/routes/authRoutes.ts
+// Autenticação das rotas de cadastro e login
+
 import { Router } from 'express';
 
 
