@@ -16,7 +16,7 @@ router.get('/Aba_promocoes', (req, res) => {
 });
 
 // Cadastro de usuário
-router.post('/Aba_promocoes', async (req, res) => {
+router.post('/auth/register', async (req, res) => {
   console.log(req.body); 
   const { nome, email, cpf, telefone, password } = req.body;
   try {
@@ -36,9 +36,11 @@ router.get('/login', (req, res) => {
 });
 
 // Processa login
-router.post('/login', async (req, res) => {
+router.post('/auth/login', async (req, res) => {
   const { email, password } = req.body;
+  console.log('Login recebido:', email, password);
   const user = await findUserByEmail(email);
+  console.log('Usuário encontrado:', user);
   if (user && user.password === password) {
     req.session.user = user;
     res.json({ success: true });
@@ -58,3 +60,4 @@ router.get('/testa-usuarios', async (req, res) => {
 });
 
 export default router;
+

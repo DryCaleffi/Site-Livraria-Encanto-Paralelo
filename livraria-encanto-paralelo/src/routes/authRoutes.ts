@@ -4,14 +4,14 @@ import { Router } from 'express';
 
 const router = Router();
 
-
-// Rotas para renderizar páginas (se você estiver usando templates)
 router.get('/login', (req, res) => {
-    res.render('auth/login'); // ou res.sendFile() se for HTML estático
+    res.render('auth/login'); 
 });
 
 router.get('/register', (req, res) => {
-    res.render('auth/register'); // ou res.sendFile() se for HTML estático
+    res.render('auth/register'); 
+    
 });
+
 
 export default router;
