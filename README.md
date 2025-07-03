@@ -21,6 +21,13 @@ Tela de cadastro
 Tela de Quem somos 
 ![image](https://github.com/user-attachments/assets/3e06125c-8e92-4827-b5b5-ebd36fc3d9d6)
 
+Tela de Cadastro de Livros
+![image](https://github.com/user-attachments/assets/7d2e9c6b-ad4e-45e3-8c22-584e93f27ad4)
+
+![image](https://github.com/user-attachments/assets/93490a3d-4ab1-48cd-b5a3-69220b4916d0)
+
+
+
 Responsividade ✅
 
 ---
@@ -35,37 +42,34 @@ Responsividade ✅
 - **MVC Pattern**
 
 ---
+
 ## Estrutura do Projeto
 
 - **src/**
   - **controllers/**: Lógica de negócio e controle das rotas.
-    - `authController.ts`: Autenticação de usuários (login/cadastro).
-    - Outros controllers para tabelas adicionais, se necessário.
+    - `pagesRoutes.ts`: Rotas e lógica das páginas principais, cadastro e login.
+    - Outros controllers conforme necessidade.
   - **models/**: Modelos de dados e acesso ao banco.
     - `userModel.ts`: Modelo e funções para usuários.
-    - Outros models para tabelas adicionais, se necessário.
+    - `livrosModels.ts`: Modelo e funções para livros.
     - `databaseModel.ts`: Configuração e conexão com o SQLite.
-  - **routes/**: Definição das rotas da aplicação.
-    - `authRoutes.ts`: Rotas de autenticação.
-    - Outras rotas para tabelas adicionais, se necessário.
+  - **routes/**: Definição das rotas da aplicação (caso separado dos controllers).
   - **middlewares/**: Middlewares para autenticação e outras funções.
-    - `authMiddleware.ts`: Verifica se o usuário está autenticado.
   - **views/**: Templates EJS para renderização das páginas.
     - **partials/**: Componentes reutilizáveis (ex: navbar, footer).
-    - **auth/**: Telas de login e cadastro.
-    - **pages/**: Outras páginas do sistema.
+    - **pages/**: Telas principais (login, cadastro, livros, etc).
   - **public/**: Arquivos estáticos (CSS, JS, imagens).
     - **css/**: Estilos.
     - **js/**: Scripts.
-- **app.ts**: Configuração principal do Express.
-- **server.ts**: Inicialização do servidor.
-- **package.json**: Dependências e scripts do projeto.
-- **tsconfig.json**: Configuração do TypeScript.
-- **src/types/**: Tipos personalizados para o projeto.
+    - **imagens/**: Imagens dos livros e do site.
+
+---
+
 
 ## Funcionalidades
 
 - Cadastro e login de usuários (com validação).
+- Cadastro de Livros
 - Manipulação de dados em tabelas do banco SQLite.
 - Interface web dinâmica com EJS e componentes reutilizáveis.
 - Estrutura organizada em MVC.
