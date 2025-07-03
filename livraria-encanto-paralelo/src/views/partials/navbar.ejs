@@ -1,23 +1,27 @@
-
 <header class="top-bar"> <!--Barra do Topo-->
-      <nav class="nav-bar">
-          <ul class="nav-menu">
-          <!--   Link Para Aba de Inicio -->
-          <li>
-            <a class="nav-link" href="/">
-                <img src="/imagens/Home.png" alt="Home" class="nav-icon-home">
-            </a>
-        </li>
+  <nav class="nav-bar">
+    <ul class="nav-menu">
+      <!--   Link Para Aba de Inicio -->
+      <li>
+        <a class="nav-link" href="/">
+          <img src="/imagens/Home.png" alt="Home" class="nav-icon-home">
+        </a>
+      </li>
 
-<!-- Botão de login -->
-<li>
+      <!-- Botão de login -->
+      <li>
         <button type="button" class="Aba_Login" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <img src="/imagens/Icon_login.png" alt="Login" class="nav-icon">
         </button>
       </li>
 
-<li>
+      <li>
         <a class="nav-link" id="inicio" href="/Aba_Inicio">Inicio</a>
+      </li>
+
+      <!-- NOVA ABA LIVROS -->
+      <li>
+        <a class="nav-link" id="livros" href="/livros">Livros</a>
       </li>
 
       <!-- Lista Suspensa para aba de contatos -->
@@ -30,7 +34,6 @@
         </ul>
       </li>
     </ul>
-
     <!-- Modal de Login -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="false">
       <div class="modal-dialog">
@@ -40,7 +43,6 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <!-- Formulário SEM submit para evitar reload -->
             <form id="loginForm">
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
